@@ -1,0 +1,24 @@
+svg.input-icon{
+    height: 3em;
+    width: 3em;
+}
+
+img.input-icon{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+body > div {
+    display: none;
+}
+/* 
+.active-btn {
+    transition: -5ms;
+}
+
+.active-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
