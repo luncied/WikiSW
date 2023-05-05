@@ -11,7 +11,6 @@ const navbarBtns = document.getElementById('mainNavbarNav').getElementsByTagName
 const sitesPages = document.getElementsByClassName('section-page');
 let contActBtn = [];
 
-console.log(navbarBtns)
 // event listener de cuando damos click en un boton del navbar
 for (let i = 0; i < navbarBtns.length; i++) {
     navbarBtns[i].addEventListener('click', changePage);
@@ -23,17 +22,15 @@ function changePage(e){
 
     if(contActBtn.length != 0){
         navbarBtns.namedItem(contActBtn[0]).classList.remove('active-link');
-        sitesPages.namedItem(navbarBtns.namedItem(contActBtn[0]).name).classList.remove('active-section');
+        sitesPages.namedItem(navbarBtns.namedItem(contActBtn[0]).name).classList.remove('d-flex');
+        sitesPages.namedItem(navbarBtns.namedItem(contActBtn[0]).name).classList.add('d-none');
         contActBtn = [];
     };
 
     if(!actLink.classList.contains('active-link')){
         actLink.classList.add('active-link');
-        actSite.classList.add('active-section');
+        actSite.classList.add('d-flex');
+        actSite.classList.remove('d-none');
         contActBtn.push(actLink.name);
     };
-
-    console.log(contActBtn);
-    console.log(actLink.name);
-
 };

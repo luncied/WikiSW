@@ -1,3 +1,11 @@
+.section-page {     
+    display: none;
+}
+
+body > div {
+    display: none;
+}
+
 svg.input-icon{
     height: 3em;
     width: 3em;
@@ -8,10 +16,7 @@ img.input-icon{
     width: 1.5rem;
 }
 
-body > div {
-    display: none;
-}
-/* 
+
 .active-btn {
     transition: -5ms;
 }
@@ -21,4 +26,4 @@ body > div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-} */
+}
