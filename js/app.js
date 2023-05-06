@@ -124,21 +124,11 @@ function sortJSON(json, key) {
 // Funcion para cargar las tarjetas del WIKI
 function loadWikiCards(charInfo){
     const {name, height, mass, hair_color, skin_color, eye_color, birth_year, gender, homeworld, species} = charInfo;
-    const id = name.replace(' ', '-');
+    const id = name.replace(' ', '-').replace(' ', '-');
     const img = `./img/charImg/${id}.jpg`
-//    "name": "Luke Skywalker",
-//    "height": "172",
-//    "mass": "77",
-//    "hair_color_color": "blond",
-//    "skin_color_color": "fair",
-//    "eye_color": "blue",
-//    "birth_year_year": "19BBY",
-//    "gender": "male",
-//    "homeworld": "Tatooine",
-//    "species": "Human"
     let content = `
                     <div class="col mt-3">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 15rem;">
                             <img src="${img}" class="card-img-top" alt="${id}_img">
                             <div class="card-body">
                                 <h5 class="card-title">${name}</h5>
@@ -192,10 +182,22 @@ function loadWikiCards(charInfo){
                     </div>
     `
     cardsCont.insertAdjacentHTML('beforeend', content)
-    console.log(cardsCont)
 };
 
-
+// Faltan
+/* 
+MAndalorianos
+YAddle
+Grogu
+Quinlan Vos
+Rex
+Wolfie
+Gregor
+Ahsoka
+Ezra
+Kanan
+Demas jedi
+*/
 
 // **** MODAL **** //
 // const myModal = document.getElementById('myModal')
