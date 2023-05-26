@@ -1,20 +1,25 @@
 // **** VARIABLES **** //
-// Variables para el cambio de pagina
+// Selectores para el cambio de pagina
 const navbarBtns = document.getElementById('mainNavbarNav').getElementsByTagName("button");
 const sitesPages = document.getElementsByClassName('section-page');
 let contActBtn = [];
 
-// Variables para los selects de crear personaje
+// Selectores para crear personaje
 const speciesSelect = document.querySelector('#new-char-species')
 const planetSelect = document.querySelector('#new-char-planet')
 const genSelect = document.querySelector('#new-char-gen')
 let species = [];
 let planets = [];
 let gens = [];
+let validatedDB = [];
 
-// Variables para el buscador de la pagina
+// Selectores para el buscador de la pagina
 const cardsCont = document.querySelector('#cards-container')
-console.log(cardsCont)
+
+// Selector para el formulario de busqueda de wiki
+const searchForm = document.querySelector('#search-form')
+const searchInput = document.querySelector('#search-input')
+
 
 // **** EVENT LISTENERS **** //
 
@@ -29,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((response) => response.json())
         .then((data) => {
             showOptions(data);
-            data.forEach(char => {loadWikiCards(char)});
+            onloadData(data);
         })
         .catch(error => console.error(error));
     // showCharacters(); // Muestra los personajes de la busqueda
 });
-
 
 
 
@@ -63,6 +67,34 @@ function changePage(e){
     };
 };
 
+
+
+// Funcion que escucha cuando damos al boton de busqueda y manda a llamar a formValue para obtener las cartas que coinciden con el nombre
+function onloadData(data){
+    searchForm.addEventListener('submit', e => {
+        let searchValue = e.target[0].value;
+        e.preventDefault()
+        validatedDB = [];
+        clearHTML(cardsCont);
+        formValue(data, searchValue);
+    });
+};
+
+// Funcion que busca el el valor asignado en la base de datos y devuelve las cards
+function formValue(data, searchValue) {
+        for(character of data){
+            if (searchValue === ''){
+                clearHTML(cardsCont);
+                validatedDB = [];
+                return;
+            };
+            if (character.name.toLowerCase().includes(searchValue)){
+                validatedDB.push(character);
+                loadWikiCards(validatedDB[0])
+                return;
+            };
+        };
+};
 
 // Funcion que rellena los menus desplegables de CREA TU PERSONAJE
 function showOptions(chardb){
@@ -101,15 +133,7 @@ function showOptions(chardb){
 };
 
 
-// Para la busqueda de WIKISW
-function showCharacters(chardb) {
-    db = sortJSON(chardb, name);
-    db.forEach(char => {
-        charElement.textContent = `
-            ${chardb.name}
-        `
-    });
-};
+
 
 // Funcion para ordenar JSON
 function sortJSON(json, key) {
@@ -184,6 +208,12 @@ function loadWikiCards(charInfo){
     cardsCont.insertAdjacentHTML('beforeend', content)
 };
 
+function clearHTML (element) {
+    while(element.firstChild) {
+        element.removeChild(element.firstChild)
+    };
+};
+
 // Faltan
 /* 
 MAndalorianos
@@ -198,11 +228,3 @@ Ezra
 Kanan
 Demas jedi
 */
-
-// **** MODAL **** //
-// const myModal = document.getElementById('myModal')
-// const myInput = document.getElementById('myInput')
-
-// myModal.addEventListener('shown.bs.modal', () => {
-//   myInput.focus()
-// })
