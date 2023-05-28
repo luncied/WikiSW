@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((data) => {
             loadCharCards(data, wikiCont, generalModal);
             searchCharacter(data);
-            getFavs();
             // showOptions(data);
         })
         .catch(error => console.error(error));
@@ -213,6 +212,8 @@ function modalChar (char, modal) {
         if(uniqueStorage(name)){
             deleteFavorite(name);
             btnFavorites.textContent = 'Añadir a favoritos'; // Cuando eliminamos el registro cambiamos el texto del boton
+            clearHTML(favCont);
+            getFavs();
             return 
         };
         addFavorites(char);
@@ -255,15 +256,24 @@ function uniqueStorage (name) {
 // Funcion que obtiene los favoritos del Local Storage
 function getFavs () {
     const fav = JSON.parse(localStorage.getItem('favs')) ?? [];
+    const favContParent = favCont.parentElement;
     if(fav.length) {
         loadCharCards(fav, favCont, generalModal);
+        if (favContParent.lastChild.localName === 'p'){
+            favContParent.removeChild(favContParent.lastChild);
+        }
         return
+    };
+
+    if(favContParent.children[1]){
+        console.log(favContParent.lastChild.localName)
+        favContParent.removeChild(favContParent.lastChild);
     };
 
     const emptyFavs = document.createElement('p');
     emptyFavs.textContent = 'Aún no has agregado personajes de SW favoritos';
     emptyFavs.classList.add('fs-4', 'text-center', 'font-bold', 'mt-5');
-    favCont.appendChild(emptyFavs);
+    favContParent.appendChild(emptyFavs);
 }
 
 // Funcion que rellena los menus desplegables de CREA TU PERSONAJE
