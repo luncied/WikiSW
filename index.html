@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -15,30 +15,33 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg  bg-body-tertiary p-3 fixed-top"> <!--bg-gradient -->
             <div class="container-fluid">
-                <a class="navbar-brand" aria-current="page" href="#">StarWars Galaxynet</a>
+                <a class="navbar-brand fs-4" aria-current="page" href="./index.html">StarWars Galaxynet</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarNav"
                     aria-controls="mainNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="mainNavbarNav">
-                    <div class="navbar-nav nav-tabs justify-content-evenly">
-                        <div name="home-cont" class="container-fluid d-flex justify-content-center w-100">
+                <div class="collapse navbar-collapse justify-content-end" id="mainNavbarNav">
+                    <div class="navbar-nav nav-tabs w-75 justify-content-between">
+                        <!-- <div name="home-cont" class="container-fluid d-flex justify-content-center w-100">
                             <button name="home" class="nav-link w-100 text-center">Home</button>
-                        </div>
+                        </div> -->
                         <div name="wiki-sw-char-cont" class="container-fluid d-flex justify-content-center w-100">
-                            <button name="wiki-sw-char" class="nav-link w-100 text-center">Busqueda</button>
+                            <button name="wiki-sw-char" class="nav-link fs-5 text-center w-100">Wiki</button>
                         </div>
-                        <div name="alta-sw-char-cont" class="container-fluid d-flex justify-content-center w-100">
+                        <div name="search-sw-char-cont" class="container-fluid d-flex justify-content-center w-100">
+                            <button name="search-sw-char" class="nav-link fs-5 text-center w-100">Busqueda</button>
+                        </div>
+                        <!-- <div name="alta-sw-char-cont" class="container-fluid d-flex justify-content-center w-100">
                             <button name="alta-sw-char" class="nav-link w-100 text-center">Crear personaje</button>
-                        </div>
+                        </div> -->
                         <div name="top5-cont" class="container-fluid d-flex justify-content-center w-100">
-                            <button name="top5" class="nav-link w-100 text-center">Top 5</button>
+                            <button name="top5" class="nav-link fs-5 text-center w-100">Top 5</button>
                         </div>
-                        <div name="" class="container-fluid d-flex justify-content-center w-100">
+                        <!-- <div name="" class="container-fluid d-flex justify-content-center w-100">
                             <button href="" class="nav-link w-auto p-2 text-center">Iniciar sesion</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -49,6 +52,7 @@
     <!-- Add character -->
     <!--  -->
     <div name="alta-sw-char" class="section-page d-none alta-sw-char justify-content-center container-sm mt-5">
+        <br/><br/><br/><br/><br/>
         <!-- Form -->
         <form
             class="form-alta-char p-5 row justify-content-center border border-opacity-75 rounded-4 shadow bg-body-tertiary rounded">
@@ -170,64 +174,50 @@
 
 
     <!--  -->
-    <!-- Top 5 characters -->
+    <!-- Favorite characters -->
     <!--  -->
-    <div name="top5" id="top-5-char"
-        class="section-page carousel slide d-none justify-content-center container-sm mt-5 border border-opacity-75 rounded-4 shadow bg-body-tertiary rounded">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+    <div name="top5" id="top-5-char" class="section-page d-none container text-center">
+        <br/><br/><br/><br/><br/>
+        <div class="border border-opacity-75 rounded-4 shadow rounded">
+            <h3 class="fs-1 ">Favoritos</h3>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
-                    class="d-block w-100 bi bi-plus-square-dotted" alt="add-image" viewBox="0 0 16 16">
-                    <path
-                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                    <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Add character</h5>
-                    <p>You can add up to 5 favorite characters</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="image-1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="image-2">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+        <br/>
+
+        <div class="justify-content-center row mt-5">
+            <div class="col-10 container text-center mt-5">
+                <div class="fav-sw-char col row row-cols-3" id="fav-sw-char">
+
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 
+    <!--  -->
+    <!-- Wiki -->
+    <!--  -->
+
+    <div name="wiki-sw-char" class="section-page container text-center wiki-sw-char d-none justify-content-center">
+        <br/><br/><br/><br/><br/>
+        <div class="border border-opacity-75 rounded-4 shadow rounded">
+            <h3 class="fs-1">Wiki Star Wars</h3>
+        </div>
+        <div class="justify-content-center row mt-5">
+            <div class="col-10 container text-center mt-5">
+                <div class="col row row-cols-3" id="wiki-sw">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--  -->
-    <!-- WikiSearch -->
+    <!-- Search -->
     <!--  -->
-    <div name="wiki-sw-char" class="section-page container wiki-sw-char d-none justify-content-center">
+    <div name="search-sw-char" class="section-page container container-lg text-center search-sw-char d-none justify-content-center">
+        <br/><br/><br/><br/><br/>
+        <div class="border border-opacity-75 rounded-4 shadow rounded">
+            <h3 class="fs-1">Busqueda de personajes</h3>
+        </div>
         <div class="justify-content-center row mt-5">
             <!-- Search form  -->
             <header class="col-12">
@@ -240,8 +230,27 @@
 
             <!-- Character cards -->
             <div class="col-10 container text-center mt-5">
-                <div class="col row row-cols-3" id="cards-container">  <!-- Grid conaining the cards -->
+                <div class="col row row-cols-3" id="cards-container"> <!-- Grid conaining the cards -->
                     <!-- Card format -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="general-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 font-bold" id="modal-title"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                </div>
+                <div class="modal-footer flex justify-content-between" id="modal-footer">
                 </div>
             </div>
         </div>
@@ -253,13 +262,13 @@
         ***Build your batalion with up to 10 characters (this deppends on how many are available in the DB) (grid)
     -->
 
-    <script src="./js/app.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
 </body>
-
 </html>
