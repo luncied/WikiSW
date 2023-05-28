@@ -8,6 +8,7 @@ let planetList = [];
 let speciesList = [];
 let starshipsList = [];
 let vehiclesList = [];
+// comitt
 
 for(character in chardb){
     charList.push(chardb[character].name)
